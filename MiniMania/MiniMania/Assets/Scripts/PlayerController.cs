@@ -128,11 +128,13 @@ public class PlayerController : MonoBehaviour {
 				this.winnerText.text = "Player Two Wins!!!";
 			}
 		}
-		if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
+
+		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "Player One Wins!!!!";
 		}
-		if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
+
+		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "You Suck At This!!!!!!";	
 		}	 

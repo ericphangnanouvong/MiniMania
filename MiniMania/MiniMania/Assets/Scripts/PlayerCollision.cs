@@ -34,7 +34,7 @@ public class PlayerCollision : MonoBehaviour {
 
 	void DestroyObject()
 	{
-		Destroy(this.gameObject);
+		Destroy(this.gameObject,5f);
 	}
 
 	void playersDied()
@@ -43,6 +43,7 @@ public class PlayerCollision : MonoBehaviour {
 		{
 			playerOneDied = true;
 		}
+
 		else
 		{
 			playerTwoDied = true;
