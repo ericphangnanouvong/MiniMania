@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour {
     void Start () {
         random = Random.Range(3f, timer);
         timerText.text = random.ToString("0");
+        gameOver = false;
     }
 
     // Update is called once per frame

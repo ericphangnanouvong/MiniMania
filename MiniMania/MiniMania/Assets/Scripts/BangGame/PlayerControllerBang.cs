@@ -23,8 +23,8 @@ public class PlayerControllerBang : MonoBehaviour {
         {
             direction = -1;
         }
-
         animator = gameObject.GetComponent<Animator>();
+        shotsMissed = 0;
     }
 	
 	// Update is called once per frame
