@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: a1d3e64c7df0f454ca4d5d98f94797bc
+timeCreated: 1481570325
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - New Super Mario Font (Mario Party 9)
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
