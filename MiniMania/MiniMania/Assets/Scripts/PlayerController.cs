@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 
 	public Rigidbody2D playerOneRb = null;
 	public Rigidbody2D playerTwoRb = null;
+	public Rigidbody2D cameraParentObject = null;
 
 	public float distanceToGroundPlayerOne;
 	public float distanceToGroundPlayerTwo;
@@ -80,6 +81,11 @@ public class PlayerController : MonoBehaviour {
 			playerTwoRb.GetComponent<Rigidbody2D>().drag = 1.5f;
 		}
 
+		if(p1ButtonPressed == true && p2ButtonPressed == true)
+		{
+			cameraParentObject.GetComponent<Rigidbody2D>().drag = 1.5f;
+		}
+
 		
 	}
 
@@ -122,20 +128,24 @@ public class PlayerController : MonoBehaviour {
 			if(officialDistanceToGroundP1 < officialDistanceToGroundP2)
 			{
 				this.winnerText.text = "Player One Wins!!!!";
+				GameDataManager.playerOneTotalScore++;
 			}
 			else 
 			{
 				this.winnerText.text = "Player Two Wins!!!";
+				GameDataManager.playerTwoTotalScore++;
 			}
 		}
 
 		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "Player One Wins!!!!";
+			GameDataManager.playerOneTotalScore++;
 		}
 		else if(PlayerCollision.playerOneDied == true && p2ButtonPressed == true)
 		{
 			this.winnerText.text = "Player Two Wins!!!!";
+			GameDataManager.playerTwoTotalScore++;
 		}
 
 		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
