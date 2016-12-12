@@ -23,9 +23,10 @@ public class PlayerCollision : MonoBehaviour {
 		if(collision.gameObject.CompareTag("Ground"))
 		{
 			if(collision.relativeVelocity.magnitude > this.velocityDeathLimit)
-			{
-				DestroyObject();
+			{	
 				playersDied();
+				DestroyObject();
+
 			}
 		}
 
@@ -34,7 +35,7 @@ public class PlayerCollision : MonoBehaviour {
 
 	void DestroyObject()
 	{
-		Destroy(this.gameObject,5f);
+		Destroy(this.gameObject, 0.01f);
 	}
 
 	void playersDied()
@@ -50,11 +51,5 @@ public class PlayerCollision : MonoBehaviour {
 		}
 	}
 
-	/*void p2Died()
-	{
-		if(this.gameObject.tag == "Player Two")
-		{
-			playerTwoDied = true;
-		}
-	}*/
+
 }
