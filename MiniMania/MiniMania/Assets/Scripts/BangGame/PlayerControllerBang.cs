@@ -11,9 +11,11 @@ public class PlayerControllerBang : MonoBehaviour {
     public static float shootTime;
     public static int shotsMissed = 0;
     public Text winText;
+    public Text playerOneTime;
+    public Text playerTwoTime;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	    if(gameObject.tag== "Player One")
         {
             direction = 1;
@@ -35,13 +37,15 @@ public class PlayerControllerBang : MonoBehaviour {
             {
                 GameObject bulletPrefab = Instantiate(bullet, this.transform.position + transform.right * 2, Quaternion.identity) as GameObject;
                 bulletPrefab.GetComponent<Bullet>().direction = direction;
-                animator.Play("PlayerOneShoot");
+                animator.Play("PlayerOneShoot");              
                 shootTime = Mathf.Abs(Timer.random);
+                playerOneTime.text = PlayerControllerBang.shootTime.ToString("0.000") + "s";
             }
 
             else if (direction == 1 && Timer.random > 0)
             {
                 animator.Play("PlayerOneShoot");
+                playerOneTime.text = "Missed";
                 shotsMissed += 1;
             }
 
@@ -51,11 +55,13 @@ public class PlayerControllerBang : MonoBehaviour {
                 bulletPrefab.GetComponent<Bullet>().direction = direction;
                 animator.Play("PlayerTwoShoot");
                 shootTime = Mathf.Abs(Timer.random);
+                playerTwoTime.text = PlayerControllerBang.shootTime.ToString("0.000") + "s";
             }
 
             else if (direction == -1 && Timer.random > 0)
             {
                 animator.Play("PlayerTwoShoot");
+                playerTwoTime.text = "Missed";
                 shotsMissed += 1;
             }
 
@@ -69,7 +75,9 @@ public class PlayerControllerBang : MonoBehaviour {
         {
             winText.text = "Player 2 Wins " + PlayerControllerBang.shootTime.ToString("0.000") +"s";
             Timer.gameOver = true;
-            Destroy(this.gameObject, 1f);
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+            
 
         }
 
@@ -77,7 +85,8 @@ public class PlayerControllerBang : MonoBehaviour {
         {
             winText.text = "Player 1 Wins " + PlayerControllerBang.shootTime.ToString("0.000")+ "s";
             Timer.gameOver = true;
-            Destroy(this.gameObject, 1f);
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
 
         }
     }
