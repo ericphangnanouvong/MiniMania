@@ -29,7 +29,7 @@ public class ArcherShoot : MonoBehaviour {
     void Update()
     {
 
-        detectPressedKeyOrButton();
+       // detectPressedKeyOrButton();
         if (Input.GetButtonDown(fireButton))
         {
             //check the pool list to see if any items are inactive;
