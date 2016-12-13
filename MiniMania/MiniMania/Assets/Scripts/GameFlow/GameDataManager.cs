@@ -2,11 +2,7 @@
 using System.Collections;
 
 
-
-public class GameDataManager : MonoBehaviour
-{
-
-    public class GameDataManager
+public class GameDataManager
     {
 
 
@@ -101,7 +97,7 @@ public class GameDataManager : MonoBehaviour
             }
         }
     }
-}
+
 
 
 /*
