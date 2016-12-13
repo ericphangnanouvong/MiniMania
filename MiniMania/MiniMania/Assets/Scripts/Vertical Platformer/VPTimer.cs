@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VPTimer : MonoBehaviour {
     public float gameLengthSeconds;
@@ -26,7 +27,19 @@ public class VPTimer : MonoBehaviour {
         {
             VPGameOver = true;
             winText.text = "     Tie Game";
+            StartCoroutine("ChangeLevel");
             timer.text = "0";
         }
+
+        if (winText.text.Contains("Win"))
+        {
+            StartCoroutine("ChangeLevel");
+        }
+    }
+
+    public IEnumerator ChangeLevel()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Transition");
     }
 }
