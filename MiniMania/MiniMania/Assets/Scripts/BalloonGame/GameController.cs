@@ -1,49 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject hazard;
-    public Vector3 spawnValues;
-    public int hazardCount;
-    public float spawnWait;
-    public float startWait;
-    public float waveWait;
+    public Text Score1;
+    public Text Score2;
 
-    public GUIText scoreText1;
-    private int score;
-
-    void Start()
+    void Update()
     {
-        score = 0;
-        UpdateScore();
-        StartCoroutine(SpawnWaves());
-    }
+        Score1.text = GameDataManager.Instance.P1_BalloonScore.ToString();
+        Score2.text = GameDataManager.Instance.P2_BalloonScore.ToString();
 
-    IEnumerator SpawnWaves()
-    {
-        yield return new WaitForSeconds(startWait);
-        while (true)
-        {
-            for (int i = 0; i < hazardCount; i++)
-            {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazard, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
-            }
-            yield return new WaitForSeconds(waveWait);
-        }
-    }
-
-    public void AddScore(int newScoreValue)
-    {
-        score += newScoreValue;
-        UpdateScore();
-    }
-
-    void UpdateScore()
-    {
-        scoreText1.text = "Score: " + score;
     }
 }

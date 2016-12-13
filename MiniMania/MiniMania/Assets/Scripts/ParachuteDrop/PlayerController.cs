@@ -187,24 +187,24 @@ public class PlayerController : MonoBehaviour {
 			if(officialDistanceToGroundP1 < officialDistanceToGroundP2)
 			{
 				this.winnerText.text = "Player One Wins!!!!";
-				GameDataManager.playerOneTotalScore++;
+				GameDataManager.Instance.playerOneTotalScore++;
 			}
 			else 
 			{
 				this.winnerText.text = "Player Two Wins!!!";
-				GameDataManager.playerTwoTotalScore++;
+				GameDataManager.Instance.playerTwoTotalScore++;
 			}
 		}
 
 		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "Player One Wins!!!!";
-			GameDataManager.playerOneTotalScore++;
+			GameDataManager.Instance.playerOneTotalScore++;
 		}
 		else if(PlayerCollision.playerOneDied == true && p2ButtonPressed == true)
 		{
 			this.winnerText.text = "Player Two Wins!!!!";
-			GameDataManager.playerTwoTotalScore++;
+			GameDataManager.Instance.playerTwoTotalScore++;
 		}
 
 		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
