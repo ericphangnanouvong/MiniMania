@@ -88,11 +88,11 @@ public class GameDataManager
         {
             get
             {
-                return this.p2_balloonscore;
+                return this.playertwototalScore;
             }
             set
             {
-                p2_balloonscore = value;
+                 playertwototalScore = value;
 
             }
         }
