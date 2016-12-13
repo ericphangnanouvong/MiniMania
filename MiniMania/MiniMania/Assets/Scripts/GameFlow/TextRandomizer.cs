@@ -13,6 +13,7 @@ public class TextRandomizer : MonoBehaviour {
     public static bool originalGamesAdded = false;
     private bool textSet = false;
     private int lastNumber = 0;
+    private bool endOfGame = false;
     public Text scoreP1;
     public Text scoreP2;
     // Use this for initialization
@@ -29,13 +30,8 @@ public class TextRandomizer : MonoBehaviour {
         }
         scoreP1.text = "P1 Score: " + GameDataManager.Instance.playerOneTotalScore;
         scoreP2.text = "P2 Score: " + GameDataManager.Instance.playerTwoTotalScore;
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        time += Time.deltaTime;
-        if(gameNames.Count == 0)
+        if (gameNames.Count == 0)
         {
             if (GameDataManager.Instance.playerOneTotalScore > GameDataManager.Instance.playerTwoTotalScore)
             {
@@ -52,13 +48,22 @@ public class TextRandomizer : MonoBehaviour {
                 gameDescription.text = "Tie Game. Thanks For Playing";
             }
 
+            endOfGame = true;
         }
-        if (gameNames.Count != 0)
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        time += Time.deltaTime;
+       
+
+        if (endOfGame == false)
         {
             if (time < 6)
             {
                 counter += Time.deltaTime;
-                if (counter > delay)
+                if (counter > delay && gameNames.Count!= 1)
                 {
                     int random = Random.Range(0, gameNames.Count);
 
@@ -71,6 +76,12 @@ public class TextRandomizer : MonoBehaviour {
                     gameText.text = gameNames[random];
                     counter = 0;
                 }
+
+                else if(gameNames.Count == 1)
+                {
+                    gameText.text = gameNames[0];
+                }
+                
             }
 
             if (time >= 6 && textSet == false)
@@ -93,7 +104,7 @@ public class TextRandomizer : MonoBehaviour {
                 {
                     gameNames.Remove("Parachute Drop");
                     gameDescription.text = "Game Objective: Open your parachute as close to the ground as possible without crashing into the ground." +
-                         "\n\nControls: Press A to open your parachute.";
+                         "\n\nControls: Press A to open your parachute. Press Start to start the game";
                 }
 
                 else if (gameText.text == "Balloon Game")

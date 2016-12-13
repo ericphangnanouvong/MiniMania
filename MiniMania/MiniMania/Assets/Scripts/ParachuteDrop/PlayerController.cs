@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public Transform playerTwoTransform = null;
 	public Transform ground = null;
 
-	static public Rigidbody2D playerOneRb = null;
-	static public Rigidbody2D playerTwoRb = null;
+	public Rigidbody2D playerOneRb = null;
+	public Rigidbody2D playerTwoRb = null;
 	public Rigidbody2D cameraParentObject = null;
 	public GameObject parachuteP1;
 	public GameObject parachuteP2;
@@ -188,31 +188,36 @@ public class PlayerController : MonoBehaviour {
 			{
 				this.winnerText.text = "Player One Wins!!!!";
 				GameDataManager.Instance.playerOneTotalScore++;
+                StartCoroutine("ChangeLevel");
             }
 			else 
 			{
 				this.winnerText.text = "Player Two Wins!!!";
 				GameDataManager.Instance.playerTwoTotalScore++;
-			}
+                StartCoroutine("ChangeLevel");
+            }
         }
 
 		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "Player One Wins!!!!";
 			GameDataManager.Instance.playerOneTotalScore++;
-		}
+            StartCoroutine("ChangeLevel");
+        }
 		else if(PlayerCollision.playerOneDied == true && p2ButtonPressed == true)
 		{
 			this.winnerText.text = "Player Two Wins!!!!";
 			GameDataManager.Instance.playerTwoTotalScore++;
-		}
+            StartCoroutine("ChangeLevel");
+        }
 
 		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
 		{
-			this.winnerText.text = "You Suck At This!!!!!!";	
-		}
+			this.winnerText.text = "You Suck At This!!!!!!";
+            StartCoroutine("ChangeLevel");
+        }
 
-        StartCoroutine("ChangeLevel");
+       
     }
 
     public IEnumerator ChangeLevel()

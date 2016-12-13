@@ -18,11 +18,11 @@ public class PlayerCollision : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(this.transform.position.y < 18 && this.transform.position.y > 17)
+		/*if(this.transform.position.y < 18 && this.transform.position.y > 17)
 		{	
 			currentVelociity =	GameObject.FindGameObjectWithTag("Player One").GetComponent<Rigidbody2D>().velocity.y;
 			Debug.Log(currentVelociity);
-		}
+		}*/
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
