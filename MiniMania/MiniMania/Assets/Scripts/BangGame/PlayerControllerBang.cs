@@ -13,6 +13,8 @@ public class PlayerControllerBang : MonoBehaviour {
     public Text winText;
     public Text playerOneTime;
     public Text playerTwoTime;
+    private float player1Time;
+    private float player2Time;
 
     // Use this for initialization
     void Start () {
@@ -38,8 +40,8 @@ public class PlayerControllerBang : MonoBehaviour {
                 GameObject bulletPrefab = Instantiate(bullet, this.transform.position + transform.right * 2, Quaternion.identity) as GameObject;
                 bulletPrefab.GetComponent<Bullet>().direction = direction;
                 animator.Play("PlayerOneShoot");              
-                shootTime = Mathf.Abs(Timer.random);
-                playerOneTime.text = PlayerControllerBang.shootTime.ToString("0.000") + "s";
+                player1Time = Mathf.Abs(Timer.random);
+                playerOneTime.text = player1Time.ToString("0.000") + "s";
             }
 
             else if (direction == 1 && Timer.random > 0)
@@ -54,8 +56,8 @@ public class PlayerControllerBang : MonoBehaviour {
                 GameObject bulletPrefab = Instantiate(bullet, this.transform.position + transform.right * 2, Quaternion.identity) as GameObject;
                 bulletPrefab.GetComponent<Bullet>().direction = direction;
                 animator.Play("PlayerTwoShoot");
-                shootTime = Mathf.Abs(Timer.random);
-                playerTwoTime.text = PlayerControllerBang.shootTime.ToString("0.000") + "s";
+                player2Time = Mathf.Abs(Timer.random);
+                playerTwoTime.text = player2Time.ToString("0.000") + "s";
             }
 
             else if (direction == -1 && Timer.random > 0)
@@ -69,25 +71,49 @@ public class PlayerControllerBang : MonoBehaviour {
         }
 	}
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (this.gameObject.tag == "Player One" && Timer.gameOver == false)
         {
-            winText.text = "Player 2 Wins " + PlayerControllerBang.shootTime.ToString("0.000") +"s";
-            Timer.gameOver = true;
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
-            
+            if (player2Time < player1Time)
+            {
+                winText.text = "Player 2 Wins ";               
+                Destroy(this.gameObject);
+            }
 
+            else if (player2Time > player1Time)
+            {
+                winText.text = "Player 1 Wins ";
+                Destroy(GameObject.FindGameObjectWithTag("Player Two"));
+            }
+
+            else
+                winText.text = "     Tie Game";
+
+            Destroy(other.gameObject);
+            Timer.gameOver = true;         
         }
 
         else if (this.gameObject.tag == "Player Two" && Timer.gameOver == false)
         {
-            winText.text = "Player 1 Wins " + PlayerControllerBang.shootTime.ToString("0.000")+ "s";
-            Timer.gameOver = true;
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            if (player1Time < player2Time)
+            {
+                winText.text = "Player 1 Wins ";
+                Destroy(other.gameObject);
+                Destroy(this.gameObject);
+            }
 
+            else if (player1Time > player2Time)
+            {
+                winText.text = "Player 2 Wins ";
+                Destroy(GameObject.FindGameObjectWithTag("Player One"));
+            }
+
+            else
+                winText.text = "     Tie Game";
+
+            Destroy(other.gameObject);
+            Timer.gameOver = true;
         }
     }
 
