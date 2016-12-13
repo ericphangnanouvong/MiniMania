@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -148,7 +149,6 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(Input.GetButtonDown(startGameButton))
 		{
-			Debug.Log("start the fucking game");
 			Time.timeScale = 1;
 		}
 	}
@@ -188,13 +188,13 @@ public class PlayerController : MonoBehaviour {
 			{
 				this.winnerText.text = "Player One Wins!!!!";
 				GameDataManager.Instance.playerOneTotalScore++;
-			}
+            }
 			else 
 			{
 				this.winnerText.text = "Player Two Wins!!!";
 				GameDataManager.Instance.playerTwoTotalScore++;
 			}
-		}
+        }
 
 		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
 		{
@@ -210,9 +210,15 @@ public class PlayerController : MonoBehaviour {
 		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "You Suck At This!!!!!!";	
-		}	 
+		}
 
-	}
+        StartCoroutine("ChangeLevel");
+    }
 
+    public IEnumerator ChangeLevel()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Transition");
+    }
 
 }

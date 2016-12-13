@@ -84,6 +84,7 @@ public class PlayerControllerBang : MonoBehaviour {
             if (player2Time < player1Time)
             {
                 winText.text = "Player 2 Wins ";
+                GameDataManager.Instance.playerTwoTotalScore++;
                 Destroy(this.gameObject);
             }
 
@@ -91,6 +92,7 @@ public class PlayerControllerBang : MonoBehaviour {
             {
                 winText.text = "Player 1 Wins ";
                 Destroy(GameObject.FindGameObjectWithTag("Player Two"));
+                GameDataManager.Instance.playerOneTotalScore++;
             }
 
             else if (player2Time == player1Time)
@@ -107,14 +109,15 @@ public class PlayerControllerBang : MonoBehaviour {
             if (player1Time < player2Time)
             {
                 winText.text = "Player 1 Wins ";
-                Destroy(other.gameObject);
-                Destroy(this.gameObject);
+                GameDataManager.Instance.playerOneTotalScore++;
+                Destroy(this.gameObject);            
             }
 
             else if (player1Time > player2Time)
             {
                 winText.text = "Player 2 Wins ";
                 Destroy(GameObject.FindGameObjectWithTag("Player One"));
+                GameDataManager.Instance.playerTwoTotalScore++;
             }
 
             else if (player2Time == player1Time)
