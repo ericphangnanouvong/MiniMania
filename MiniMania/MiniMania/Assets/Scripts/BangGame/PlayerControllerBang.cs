@@ -48,6 +48,7 @@ public class PlayerControllerBang : MonoBehaviour {
             {
                 animator.Play("PlayerOneShoot");
                 playerOneTime.text = "Missed";
+                player1Time = 10000000000000;
                 shotsMissed += 1;
             }
 
@@ -64,6 +65,7 @@ public class PlayerControllerBang : MonoBehaviour {
             {
                 animator.Play("PlayerTwoShoot");
                 playerTwoTime.text = "Missed";
+                player2Time = 10000000000000;
                 shotsMissed += 1;
             }
 
