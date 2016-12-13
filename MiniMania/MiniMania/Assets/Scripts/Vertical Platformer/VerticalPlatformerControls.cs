@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VerticalPlatformerControls : MonoBehaviour {
     public string horizontal;
@@ -102,12 +103,13 @@ public class VerticalPlatformerControls : MonoBehaviour {
             if (this.gameObject.tag.Contains("One"))
             {
                 winText.text = "Player 1 Wins";
-                
+                GameDataManager.playerOneTotalScore += 1;
             }
 
             else if (this.gameObject.tag.Contains("Two") && VPTimer.VPGameOver == false)
             {
                 winText.text = "Player 2 Wins";
+                GameDataManager.playerOneTotalScore += 1;
             }
 
             animator.SetBool("Idle", true);

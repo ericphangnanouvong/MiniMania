@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerBang : MonoBehaviour {
     public string mainButton;
@@ -13,8 +14,8 @@ public class PlayerControllerBang : MonoBehaviour {
     public Text winText;
     public Text playerOneTime;
     public Text playerTwoTime;
-    private float player1Time;
-    private float player2Time;
+    public static float player1Time;
+    public static float player2Time;
 
     // Use this for initialization
     void Start () {
@@ -29,6 +30,9 @@ public class PlayerControllerBang : MonoBehaviour {
         }
         animator = gameObject.GetComponent<Animator>();
         shotsMissed = 0;
+
+        player1Time = 10000000000000;
+        player2Time = 10000000000000;
     }
 	
 	// Update is called once per frame
@@ -52,7 +56,7 @@ public class PlayerControllerBang : MonoBehaviour {
                 shotsMissed += 1;
             }
 
-            if (direction == -1 && Timer.random <= 0)
+            else if (direction == -1 && Timer.random <= 0)
             {
                 GameObject bulletPrefab = Instantiate(bullet, this.transform.position + transform.right * 2, Quaternion.identity) as GameObject;
                 bulletPrefab.GetComponent<Bullet>().direction = direction;
@@ -79,7 +83,7 @@ public class PlayerControllerBang : MonoBehaviour {
         {
             if (player2Time < player1Time)
             {
-                winText.text = "Player 2 Wins ";               
+                winText.text = "Player 2 Wins ";
                 Destroy(this.gameObject);
             }
 
@@ -90,8 +94,10 @@ public class PlayerControllerBang : MonoBehaviour {
             }
 
             else if (player2Time == player1Time)
-                winText.text = "     Tie Game";
-
+            {
+               winText.text = "     Tie Game";
+            }
+            
             Destroy(other.gameObject);
             Timer.gameOver = true;         
         }
@@ -112,12 +118,12 @@ public class PlayerControllerBang : MonoBehaviour {
             }
 
             else if (player2Time == player1Time)
+            {
                 winText.text = "     Tie Game";
+            }
 
             Destroy(other.gameObject);
             Timer.gameOver = true;
         }
     }
-
-
 }

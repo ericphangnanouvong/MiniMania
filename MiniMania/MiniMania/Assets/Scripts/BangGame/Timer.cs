@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
     public float timer = 10;
@@ -42,7 +43,19 @@ public class Timer : MonoBehaviour {
         if (PlayerControllerBang.shotsMissed == 2)
         {
             winText.text = "     Tie Game";
+            StartCoroutine("ChangeLevel");
             gameOver = true;
         }
+
+        if (winText.text.Contains("Win"))
+        {
+            StartCoroutine("ChangeLevel");
+        }
+    }
+
+    public IEnumerator ChangeLevel()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Transition");
     }
 }
