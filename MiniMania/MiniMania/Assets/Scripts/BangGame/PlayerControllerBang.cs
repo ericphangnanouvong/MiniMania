@@ -89,7 +89,7 @@ public class PlayerControllerBang : MonoBehaviour {
                 Destroy(GameObject.FindGameObjectWithTag("Player Two"));
             }
 
-            else
+            else if (player2Time == player1Time)
                 winText.text = "     Tie Game";
 
             Destroy(other.gameObject);
@@ -111,7 +111,7 @@ public class PlayerControllerBang : MonoBehaviour {
                 Destroy(GameObject.FindGameObjectWithTag("Player One"));
             }
 
-            else
+            else if (player2Time == player1Time)
                 winText.text = "     Tie Game";
 
             Destroy(other.gameObject);
