@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class BalloonMovement : MonoBehaviour {
 
-<<<<<<< HEAD
     public float speed;
     public float minSpeed=0.5f;
     public float maxSpeed=1f;
@@ -66,15 +65,5 @@ public class BalloonMovement : MonoBehaviour {
        anim.SetBool("BalloonPop", false);
         gameObject.SetActive(false);
     }
-=======
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
->>>>>>> fe86af490fa58fa401bda4a42eccfd5e39443b6c
 }

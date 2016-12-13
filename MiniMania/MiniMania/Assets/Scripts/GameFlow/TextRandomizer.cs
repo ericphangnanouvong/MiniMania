@@ -27,8 +27,8 @@ public class TextRandomizer : MonoBehaviour {
             gameNames.Add("Parachute Drop");
             originalGamesAdded = true;
         }
-        scoreP1.text = "P1 Score: "+ GameDataManager.playerOneTotalScore;
-        scoreP1.text = "P2 Score: " + GameDataManager.playerTwoTotalScore;
+        scoreP1.text = "P1 Score: "+ GameDataManager.Instance.playerOneTotalScore;
+        scoreP1.text = "P2 Score: " + GameDataManager.Instance.playerTwoTotalScore;
     }
 	
 	// Update is called once per frame
