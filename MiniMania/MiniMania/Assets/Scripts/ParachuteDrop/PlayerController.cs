@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody2D playerOneRb = null;
 	public Rigidbody2D playerTwoRb = null;
 	public Rigidbody2D cameraParentObject = null;
+	public GameObject parachuteP1;
+	public GameObject parachuteP2;
 
 	public float distanceToGroundPlayerOne;
 	public float distanceToGroundPlayerTwo;
@@ -65,19 +67,23 @@ public class PlayerController : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(playerOneInputButton) && p1ButtonPressed == false)
 		{	
-			Time.timeScale = 1;
+			//SpriteRenderer parachuteP1 = gameObject.GetComponent<SpriteRenderer>();
+
+
 			p1ButtonPressed = true;
 			officialDistanceToGroundP1 = -(ground.transform.position.y - playerOneTransform.transform.position.y) + 0.9654810555f;
 			this.p1Text.text = "Distance: " + officialDistanceToGroundP1.ToString();
+			parachuteP1.GetComponent<SpriteRenderer>().enabled = true;
 			playerOneRb.GetComponent<Rigidbody2D>().drag = 1.5f;
+
 		}
 		if(Input.GetKeyDown(playerTwoInputButton) && p2ButtonPressed == false)
 		{	
 
-
 			p2ButtonPressed = true;
 			officialDistanceToGroundP2 = -(ground.transform.position.y - playerTwoTransform.transform.position.y) + 0.889643505f;
 			this.p2Text.text = "Distance: " + officialDistanceToGroundP2.ToString();
+			parachuteP2.GetComponent<SpriteRenderer>().enabled = true;
 			playerTwoRb.GetComponent<Rigidbody2D>().drag = 1.5f;
 		}
 
