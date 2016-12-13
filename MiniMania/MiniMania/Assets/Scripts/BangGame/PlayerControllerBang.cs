@@ -48,6 +48,7 @@ public class PlayerControllerBang : MonoBehaviour {
             {
                 animator.Play("PlayerOneShoot");
                 playerOneTime.text = "Missed";
+                player1Time = 10000000000000;
                 shotsMissed += 1;
             }
 
@@ -64,6 +65,7 @@ public class PlayerControllerBang : MonoBehaviour {
             {
                 animator.Play("PlayerTwoShoot");
                 playerTwoTime.text = "Missed";
+                player2Time = 10000000000000;
                 shotsMissed += 1;
             }
 
@@ -87,7 +89,7 @@ public class PlayerControllerBang : MonoBehaviour {
                 Destroy(GameObject.FindGameObjectWithTag("Player Two"));
             }
 
-            else
+            else if (player2Time == player1Time)
                 winText.text = "     Tie Game";
 
             Destroy(other.gameObject);
@@ -109,7 +111,7 @@ public class PlayerControllerBang : MonoBehaviour {
                 Destroy(GameObject.FindGameObjectWithTag("Player One"));
             }
 
-            else
+            else if (player2Time == player1Time)
                 winText.text = "     Tie Game";
 
             Destroy(other.gameObject);

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour {
     public int direction;
-    public Text winText;
     
 	// Use this for initialization
 	void Start () {
