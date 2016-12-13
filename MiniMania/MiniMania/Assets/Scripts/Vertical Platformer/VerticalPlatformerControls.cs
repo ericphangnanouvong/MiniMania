@@ -103,13 +103,13 @@ public class VerticalPlatformerControls : MonoBehaviour {
             if (this.gameObject.tag.Contains("One"))
             {
                 winText.text = "Player 1 Wins";
-                GameDataManager.playerOneTotalScore += 1;
+                GameDataManager.Instance.playerOneTotalScore++;
             }
 
             else if (this.gameObject.tag.Contains("Two") && VPTimer.VPGameOver == false)
             {
                 winText.text = "Player 2 Wins";
-                GameDataManager.playerOneTotalScore += 1;
+                GameDataManager.Instance.playerTwoTotalScore++;
             }
 
             animator.SetBool("Idle", true);
