@@ -42,20 +42,22 @@ public class PlayerCollision : MonoBehaviour {
 
 	void DestroyObject()
 	{
-		Destroy(this.gameObject, 0.01f);
-	}
+        //Destroy(this.gameObject, 0.01f);
+       
+            
+      }
 
 	void playersDied()
 	{
 		if(this.gameObject.tag == "Player One")
 		{
 			playerOneDied = true;
-		}
+        }
 
 		else
 		{
 			playerTwoDied = true;
-		}
+        }
 	}
 
 

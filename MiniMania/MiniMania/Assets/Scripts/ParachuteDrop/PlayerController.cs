@@ -161,11 +161,11 @@ public class PlayerController : MonoBehaviour {
 		if(PlayerCollision.playerOneDied == true)
 		{
 			Debug.Log("P1 Died");
-		}
+        }
 		if(PlayerCollision.playerTwoDied == true)
 		{
 			Debug.Log("P2 Died");
-		}
+        }
 	} 
 
 	void determineDistanceConstantly()
@@ -188,12 +188,14 @@ public class PlayerController : MonoBehaviour {
 			{
 				this.winnerText.text = "Player One Wins!!!!";
 				GameDataManager.Instance.playerOneTotalScore++;
+                GameObject.Find("Player Two").GetComponent<SpriteRenderer>().enabled = false;
                 StartCoroutine("ChangeLevel");
             }
 			else 
 			{
 				this.winnerText.text = "Player Two Wins!!!";
 				GameDataManager.Instance.playerTwoTotalScore++;
+                GameObject.Find("Player One").GetComponent<SpriteRenderer>().enabled = false;
                 StartCoroutine("ChangeLevel");
             }
         }
