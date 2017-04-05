@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
-
 	public Transform playerOneTransform = null;
 	public Transform playerTwoTransform = null;
 	public Transform ground = null;
@@ -15,7 +14,6 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody2D cameraParentObject = null;
 	public GameObject parachuteP1;
 	public GameObject parachuteP2;
-    public Camera camera;
 
 	public float distanceToGroundPlayerOne;
 	public float distanceToGroundPlayerTwo;
@@ -32,41 +30,51 @@ public class PlayerController : MonoBehaviour {
 
 	private bool p1ButtonPressed = false;
 	private bool p2ButtonPressed = false;
-    private bool gameStarted = false;
 
 	public Text p1Text = null;
 	public Text p2Text = null;
 	public Text winnerText = null;
-    public Text timerText = null;
 
-    private float timer = 3;
+	public float p1EndStatsTime;
+	public float p2EndStatsTime;
+
+	public Camera camera;
+	private bool gameStarted = false;
+	public Text timerText = null;
+	private float timer = 3;
+
+
+
+
 
 	// Use this for initialization
 	void Start () 
 	{
-        //playerOneRb = this.gameObject.GetComponent<Rigidbody2D>();
-       
-    }
-	
+		//Time.timeScale = 0;
+		//playerOneRb = this.gameObject.GetComponent<Rigidbody2D>();
+	}
+
 	// Update is called once per frame
 	void Update () 
-	{
-        timer -= Time.deltaTime;
-        
-        if (timer <= 0)
-        {
-            timerText.text = "";
-            gameStarted = true;
-            playerOneRb.gravityScale = 1;
-            playerTwoRb.gravityScale = 1;
-            camera.GetComponent<Rigidbody2D>().gravityScale = 1;
-        }
+	{	
+		
+			timer -= Time.deltaTime;
 
-        else
-            timerText.text = "  " + timer.ToString("0");
-        //startGame();
-        //JoyStickStartGame();
-        determineDistanceConstantly();
+			if (timer <= 0)
+			{
+				timerText.text = "";
+				gameStarted = true;
+				playerOneRb.gravityScale = 1;
+				playerTwoRb.gravityScale = 1;
+				camera.GetComponent<Rigidbody2D>().gravityScale = 1;
+			}
+
+			else
+				timerText.text = "  " + timer.ToString("0");
+			//startGame();
+			//JoyStickStartGame();
+			determineDistanceConstantly();
+
 		winCondition();
 
 
@@ -76,13 +84,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate()
-	{
+	{	
 
-        //PlayerInput();
-        if (gameStarted)
-        {
-            JoyStickInput();
-        }
+		//PlayerInput();
+		if(gameStarted)
+		JoyStickInput();
 
 
 		// Testing if player bools are triggering correctly
@@ -131,11 +137,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}*/
 
-		
+
 
 	void JoyStickInput()
 	{
-		
+
 		if(Input.GetButtonDown(fireP1) && p1ButtonPressed == false)
 		{	
 			//SpriteRenderer parachuteP1 = gameObject.GetComponent<SpriteRenderer>();
@@ -180,11 +186,11 @@ public class PlayerController : MonoBehaviour {
 		if(PlayerCollision.playerOneDied == true)
 		{
 			Debug.Log("P1 Died");
-        }
+		}
 		if(PlayerCollision.playerTwoDied == true)
 		{
 			Debug.Log("P2 Died");
-        }
+		}
 	} 
 
 	void determineDistanceConstantly()
@@ -207,44 +213,60 @@ public class PlayerController : MonoBehaviour {
 			{
 				this.winnerText.text = "Player One Wins!!!!";
 				GameDataManager.Instance.playerOneTotalScore++;
-                GameObject.Find("Player Two").GetComponent<SpriteRenderer>().enabled = false;
-                StartCoroutine("ChangeLevel");
-            }
+				GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
+				GameDataManager.Instance.PlayerTwoParaDistance = officialDistanceToGroundP2;
+
+				GameObject.Find("Player Two").GetComponent<SpriteRenderer>().enabled = false;
+				camera.GetComponent<Rigidbody2D>().gravityScale=0;
+				StartCoroutine("ChangeLevel");
+			}
 			else 
 			{
 				this.winnerText.text = "Player Two Wins!!!";
 				GameDataManager.Instance.playerTwoTotalScore++;
-                GameObject.Find("Player One").GetComponent<SpriteRenderer>().enabled = false;
-                StartCoroutine("ChangeLevel");
-            }
-        }
+				GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
+				GameDataManager.Instance.PlayerTwoParaDistance = officialDistanceToGroundP2;
+				camera.GetComponent<Rigidbody2D>().gravityScale=0;
+				GameObject.Find("Player One").GetComponent<SpriteRenderer>().enabled = false;
+				StartCoroutine("ChangeLevel");
+			}
+		}
 
 		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "Player One Wins!!!!";
 			GameDataManager.Instance.playerOneTotalScore++;
-            StartCoroutine("ChangeLevel");
-        }
+			GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
+			GameDataManager.Instance.PlayerTwoParaDistance = officialDistanceToGroundP2;
+			camera.GetComponent<Rigidbody2D>().gravityScale=0;
+			StartCoroutine("ChangeLevel");
+		}
 		else if(PlayerCollision.playerOneDied == true && p2ButtonPressed == true)
 		{
 			this.winnerText.text = "Player Two Wins!!!!";
 			GameDataManager.Instance.playerTwoTotalScore++;
-            StartCoroutine("ChangeLevel");
-        }
+			GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
+			GameDataManager.Instance.PlayerTwoParaDistance = officialDistanceToGroundP2;
+			camera.GetComponent<Rigidbody2D>().gravityScale=0;
+			StartCoroutine("ChangeLevel");
+		}
 
 		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
 		{
 			this.winnerText.text = "You Suck At This!!!!!!";
-            StartCoroutine("ChangeLevel");
-        }
+			GameDataManager.Instance.PlayerOneParaDistance = 0;
+			GameDataManager.Instance.PlayerTwoParaDistance = 0;
+			StartCoroutine("ChangeLevel");
+			camera.GetComponent<Rigidbody2D>().gravityScale=0;
+		}
 
-       
-    }
 
-    public IEnumerator ChangeLevel()
-    {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("Transition");
-    }
+	}
+
+	public IEnumerator ChangeLevel()
+	{
+		yield return new WaitForSeconds(3);
+		SceneManager.LoadScene("Transition");
+	}
 
 }
