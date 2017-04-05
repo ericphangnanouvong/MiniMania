@@ -16,6 +16,7 @@ public class TextRandomizer : MonoBehaviour {
     private bool endOfGame = false;
     public Text scoreP1;
     public Text scoreP2;
+    public GameObject replayButton;
     // Use this for initialization
     void Start () {
         gameText = this.gameObject.GetComponent<Text>();
@@ -47,7 +48,7 @@ public class TextRandomizer : MonoBehaviour {
             {
                 gameDescription.text = "Tie Game. Thanks For Playing";
             }
-
+            replayButton.SetActive(true);
             endOfGame = true;
         }
     }

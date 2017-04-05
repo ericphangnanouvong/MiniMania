@@ -13,6 +13,8 @@ public class VerticalPlatformerControls : MonoBehaviour {
     public GameObject player2Spawn;
     private Animator animator;
     public Text winText;
+    private bool gameStarted = false;
+    private float gameStartTimer = 3;
 	// Use this for initialization
 	void Start () {
         animator = gameObject.GetComponent<Animator>();
@@ -29,8 +31,16 @@ public class VerticalPlatformerControls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        gameStartTimer -= Time.deltaTime;
+
+        if (gameStartTimer <= 0)
+        {
+            gameStarted = true;
+        }
+
+       
         //animations and sprite flipping
-        if (VPTimer.VPGameOver == false)
+        if (VPTimer.VPGameOver == false && gameStarted == true)
         {
             if (Input.GetAxis(horizontal) > 0.1f)
             {

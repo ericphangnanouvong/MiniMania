@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody2D cameraParentObject = null;
 	public GameObject parachuteP1;
 	public GameObject parachuteP2;
+    public Camera camera;
 
 	public float distanceToGroundPlayerOne;
 	public float distanceToGroundPlayerTwo;
@@ -31,25 +32,41 @@ public class PlayerController : MonoBehaviour {
 
 	private bool p1ButtonPressed = false;
 	private bool p2ButtonPressed = false;
+    private bool gameStarted = false;
 
 	public Text p1Text = null;
 	public Text p2Text = null;
 	public Text winnerText = null;
+    public Text timerText = null;
 
+    private float timer = 3;
 
 	// Use this for initialization
 	void Start () 
 	{
-		Time.timeScale = 0;
-		//playerOneRb = this.gameObject.GetComponent<Rigidbody2D>();
-	}
+        //playerOneRb = this.gameObject.GetComponent<Rigidbody2D>();
+       
+    }
 	
 	// Update is called once per frame
 	void Update () 
-	{	
-		//startGame();
-		JoyStickStartGame();
-		determineDistanceConstantly();
+	{
+        timer -= Time.deltaTime;
+        
+        if (timer <= 0)
+        {
+            timerText.text = "";
+            gameStarted = true;
+            playerOneRb.gravityScale = 1;
+            playerTwoRb.gravityScale = 1;
+            camera.GetComponent<Rigidbody2D>().gravityScale = 1;
+        }
+
+        else
+            timerText.text = "  " + timer.ToString("0");
+        //startGame();
+        //JoyStickStartGame();
+        determineDistanceConstantly();
 		winCondition();
 
 
@@ -59,11 +76,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate()
-	{	
-		
-		//PlayerInput();
+	{
 
-		JoyStickInput();
+        //PlayerInput();
+        if (gameStarted)
+        {
+            JoyStickInput();
+        }
 
 
 		// Testing if player bools are triggering correctly
