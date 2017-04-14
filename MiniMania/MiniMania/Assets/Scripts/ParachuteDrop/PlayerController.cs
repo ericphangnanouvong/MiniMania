@@ -66,7 +66,8 @@ public class PlayerController : MonoBehaviour {
 				gameStarted = true;
 				playerOneRb.gravityScale = 1;
 				playerTwoRb.gravityScale = 1;
-				camera.GetComponent<Rigidbody2D>().gravityScale = 1;
+			cameraParentObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+				//camera.GetComponent<Rigidbody2D>().gravityScale = 1;
 			}
 
 			else
@@ -149,7 +150,7 @@ public class PlayerController : MonoBehaviour {
 
 			p1ButtonPressed = true;
 			officialDistanceToGroundP1 = -(ground.transform.position.y - playerOneTransform.transform.position.y) + 0.9654810555f;
-			this.p1Text.text = "Distance: " + officialDistanceToGroundP1.ToString();
+			this.p1Text.text = "Distance: " + officialDistanceToGroundP1.ToString("00.00");
 			parachuteP1.GetComponent<SpriteRenderer>().enabled = true;
 			playerOneRb.GetComponent<Rigidbody2D>().drag = 1.5f;
 
@@ -159,7 +160,7 @@ public class PlayerController : MonoBehaviour {
 
 			p2ButtonPressed = true;
 			officialDistanceToGroundP2 = -(ground.transform.position.y - playerTwoTransform.transform.position.y) + 0.889643505f;
-			this.p2Text.text = "Distance: " + officialDistanceToGroundP2.ToString();
+			this.p2Text.text = "Distance: " + officialDistanceToGroundP2.ToString("00.00");
 			parachuteP2.GetComponent<SpriteRenderer>().enabled = true;
 			playerTwoRb.GetComponent<Rigidbody2D>().drag = 1.5f;
 		}

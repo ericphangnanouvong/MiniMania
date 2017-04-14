@@ -26,13 +26,18 @@ public class PlayerCollision : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
-	{
+	{		
+		
 		if(collision.gameObject.CompareTag("Ground"))
 		{
+
+
 			if(collision.relativeVelocity.magnitude > this.velocityDeathLimit)
 			{	
+
+				Debug.Log("COLLISION");
 				playersDied();
-				DestroyObject();
+				DestroyObject(this.gameObject);
 
 			}
 		}
