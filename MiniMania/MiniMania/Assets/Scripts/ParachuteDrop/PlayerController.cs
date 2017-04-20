@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour {
 				GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
 				GameDataManager.Instance.PlayerTwoParaDistance = officialDistanceToGroundP2;
 
-				GameObject.Find("Player Two").GetComponent<SpriteRenderer>().enabled = false;
+			//GameObject.Find("Player Two").GetComponent<SpriteRenderer>().enabled = false;
 				camera.GetComponent<Rigidbody2D>().gravityScale=0;
 				StartCoroutine("ChangeLevel");
 			}
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour {
 				GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
 				GameDataManager.Instance.PlayerTwoParaDistance = officialDistanceToGroundP2;
 				camera.GetComponent<Rigidbody2D>().gravityScale=0;
-				GameObject.Find("Player One").GetComponent<SpriteRenderer>().enabled = false;
+			//	GameObject.Find("Player One").GetComponent<SpriteRenderer>().enabled = false;
 				StartCoroutine("ChangeLevel");
 			}
 		}
