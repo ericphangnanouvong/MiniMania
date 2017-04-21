@@ -46,7 +46,6 @@ public class GameDataManager
 		{
 			p1_balloonscore = value;
 
-			playerOneTotalScore += p1_balloonscore;
 
 		}
 	}
@@ -63,7 +62,6 @@ public class GameDataManager
 		{
 			p2_balloonscore = value;
 
-			playerTwoTotalScore += p2_balloonscore;
 
 		}
 	}

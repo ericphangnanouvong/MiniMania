@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
 	private bool p1ButtonPressed = false;
 	private bool p2ButtonPressed = false;
+	private bool isGameOver = false;
 
 	public Text p1Text = null;
 	public Text p2Text = null;
@@ -49,7 +50,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () 
-	{
+	{	
+		isGameOver = false;
 		//Time.timeScale = 0;
 		//playerOneRb = this.gameObject.GetComponent<Rigidbody2D>();
 	}
@@ -208,10 +210,11 @@ public class PlayerController : MonoBehaviour {
 
 	void winCondition()
 	{
-		if(p1ButtonPressed == true && p2ButtonPressed == true)
+		if(p1ButtonPressed == true && p2ButtonPressed == true && isGameOver == false)
 		{
 			if(officialDistanceToGroundP1 < officialDistanceToGroundP2)
-			{
+			{	
+				isGameOver = true;
 				this.winnerText.text = "Player One Wins!!!!";
 				GameDataManager.Instance.playerOneTotalScore++;
 				GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
@@ -222,7 +225,8 @@ public class PlayerController : MonoBehaviour {
 				StartCoroutine("ChangeLevel");
 			}
 			else 
-			{
+			{	
+				isGameOver = true;
 				this.winnerText.text = "Player Two Wins!!!";
 				GameDataManager.Instance.playerTwoTotalScore++;
 				GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
@@ -233,8 +237,9 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true)
-		{
+		else if(p1ButtonPressed == true && PlayerCollision.playerTwoDied == true && isGameOver == false)
+		{	
+			isGameOver = true;
 			this.winnerText.text = "Player One Wins!!!!";
 			GameDataManager.Instance.playerOneTotalScore++;
 			GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
@@ -242,8 +247,9 @@ public class PlayerController : MonoBehaviour {
 			camera.GetComponent<Rigidbody2D>().gravityScale=0;
 			StartCoroutine("ChangeLevel");
 		}
-		else if(PlayerCollision.playerOneDied == true && p2ButtonPressed == true)
-		{
+		else if(PlayerCollision.playerOneDied == true && p2ButtonPressed == true && isGameOver == false)
+		{	
+			isGameOver = true;
 			this.winnerText.text = "Player Two Wins!!!!";
 			GameDataManager.Instance.playerTwoTotalScore++;
 			GameDataManager.Instance.PlayerOneParaDistance = officialDistanceToGroundP1;
@@ -252,9 +258,10 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine("ChangeLevel");
 		}
 
-		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true)
-		{
-			this.winnerText.text = "You Suck At This!!!!!!";
+		else if(PlayerCollision.playerOneDied == true && PlayerCollision.playerTwoDied == true && isGameOver == false)
+		{	
+			isGameOver = true;
+			this.winnerText.text = "Draw!!!";
 			GameDataManager.Instance.PlayerOneParaDistance = 0;
 			GameDataManager.Instance.PlayerTwoParaDistance = 0;
 			StartCoroutine("ChangeLevel");

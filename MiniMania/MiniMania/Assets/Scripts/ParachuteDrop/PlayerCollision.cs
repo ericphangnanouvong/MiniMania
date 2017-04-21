@@ -37,7 +37,8 @@ public class PlayerCollision : MonoBehaviour {
 
 				Debug.Log("COLLISION");
 				playersDied();
-				DestroyObject(this.gameObject);
+				this.gameObject.GetComponent<SpriteRenderer>().enabled=false;
+				//DestroyObject(this.gameObject);
 
 			}
 		}

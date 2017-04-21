@@ -1,9 +1,32 @@
 fileFormatVersion: 2
 guid: 540c1d20df6a81347995500330141972
-timeCreated: 1492727599
+timeCreated: 1492783435
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Vert_Play_Second_Character_0
+    21300002: Vert_Play_Second_Character_1
+    21300004: Vert_Play_Second_Character_2
+    21300006: Vert_Play_Second_Character_3
+    21300008: Vert_Play_Second_Character_4
+    21300010: Vert_Play_Second_Character_5
+    21300012: Vert_Play_Second_Character_6
+    21300014: Vert_Play_Second_Character_7
+    21300016: Vert_Play_Second_Character_8
+    21300018: Vert_Play_Second_Character_9
+    21300020: Vert_Play_Second_Character_10
+    21300022: Vert_Play_Second_Character_11
+    21300024: Vert_Play_Second_Character_12
+    21300026: Vert_Play_Second_Character_13
+    21300028: Vert_Play_Second_Character_14
+    21300030: Vert_Play_Second_Character_15
+    21300032: Vert_Play_Second_Character_16
+    21300034: Vert_Play_Second_Character_17
+    21300036: Vert_Play_Second_Character_18
+    21300038: Vert_Play_Second_Character_19
+    21300040: Vert_Play_Second_Character_20
+    21300042: Vert_Play_Second_Character_21
+    21300044: Vert_Play_Second_Character_22
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -27,14 +50,14 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 2
     aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +81,316 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_0
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 3679
+        width: 145
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_1
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 3882
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_2
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 3679
+        width: 138
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_3
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 3679
+        width: 145
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_4
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 3882
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_5
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 3679
+        width: 145
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_6
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 3882
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_7
+      rect:
+        serializedVersion: 2
+        x: 2213
+        y: 3707
+        width: 168
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_8
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 3370
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_9
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3167
+        width: 136
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_10
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 3370
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_11
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 3167
+        width: 136
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_12
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 3370
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_13
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 3167
+        width: 136
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_14
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 3370
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_15
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 3167
+        width: 146
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_16
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 3370
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_17
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 3192
+        width: 168
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_18
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 2655
+        width: 132
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_19
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 2655
+        width: 132
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_20
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 2655
+        width: 132
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_21
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 2655
+        width: 132
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Vert_Play_Second_Character_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2040
+        width: 509
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
