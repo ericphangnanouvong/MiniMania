@@ -1,0 +1,49 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon (TM) R7 360 Series (ID=0x665f)
+    Vendor:   ATI
+    VRAM:     2025 MB
+    Driver:   21.19.137.514
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.028 seconds
+Platform assembly: C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Viruth\Documents\MiniMania\MiniMania\MiniMania\MiniMania_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.309733 ms
+start client
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+start client
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.003645 ms
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 384.
+Total: 0.585688 ms (FindLiveObjects: 0.043022 ms CreateObjectMapping: 0.097777 ms MarkObjects: 0.404800 ms  DeleteObjects: 0.032266 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.435600 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 384.
+Total: 0.319244 ms (FindLiveObjects: 0.014666 ms CreateObjectMapping: 0.018577 ms MarkObjects: 0.272311 ms  DeleteObjects: 0.007333 ms)
+
+Setting up 3 worker threads for Enlighten.
+  Thread -> id: 23a0 -> priority: 1 
+  Thread -> id: 2fe4 -> priority: 1 
+  Thread -> id: 273c -> priority: 1 
